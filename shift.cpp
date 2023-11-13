@@ -1,25 +1,22 @@
 //C++ program for Shift Cipher
-
 #include <iostream>
 using namespace std;
-
 
 string encrypt(string input, int key)
 {
     key=key%26;
 
-	string output = "";
+    string output = "";
 
-	
 	for (int i = 0; i < input.length(); i++) 
     {
-		if (isupper(input[i]))
+	if (isupper(input[i]))
         //encrypting uppercase letters.
 		output += char(int(input[i] + key - 65) % 26 + 65);
 		else
         //encrypting lowercase letters.
 			output += char(int(input[i] + key - 97) % 26 + 97);
-	}
+     }
 	return output;
 }
 
