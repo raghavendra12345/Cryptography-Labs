@@ -5,29 +5,25 @@ def RSA(p: int, q: int, message: int):
     # calculating n
     n = p * q
 
-    # calculating totient, t
+   
     t = (p - 1) * (q - 1)
 
-    # selecting public key, e
-    for i in range(2, t):
+       for i in range(2, t):
         if gcd(i, t) == 1:
             e = i
             break
     
-    # selecting private key, d
-    j = 0
+       j = 0
     while True:
         if (j * e) % t == 1:
             d = j
             break
         j += 1
-
-    # performing encryption
+    
     ct = (message ** e) % n
     print(f"Encrypted message is {ct}")
 
-    # performing decryption
-    mes = (ct ** d) % n
+        mes = (ct ** d) % n
     print(f"Decrypted message is {mes}")
 
 # Testcase - 1
